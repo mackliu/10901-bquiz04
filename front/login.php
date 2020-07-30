@@ -19,7 +19,33 @@
             $_SESSION['ans']=$a+$b;
             echo $a . " + " . $b . " = ";
         ?>
-        <input type="text" name="chk" id="chk"></td>
+        <input type="text" name="ans" id="ans"></td>
     </tr>
 </table>
-<div class="ct"><button>確認</button></div>
+<div class="ct"><button onclick="login()">確認</button></div>
+<script>
+function login(){
+    let acc=$("#acc").val()
+    let pw=$("#pw").val()
+    let ans=$("#ans").val()
+
+    $.get("api/chk_ans.php",{ans},function(res){
+        if(res==1){
+            $.get("api/chk_pw.php",{acc,pw},function(res){
+                if(res==1){
+                    location.href='index.php';
+                }else{
+                    alert("帳號或密碼錯誤")
+                    location.reload()
+                }
+            })
+        }else{
+            alert('驗證碼錯誤,請重新輸入')
+        }
+    })
+
+}
+
+
+
+</script>
