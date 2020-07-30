@@ -1,6 +1,6 @@
 <h2 class="ct">新增管理帳號</h2>
 <!-- table.all>tr*3>td.tt.ct+td.pp -->
-<form action="api/add_admin.php" method="post">
+<form action="api/save_admin.php" method="post">
     <table class="all">
         <tr>
             <td class="tt ct">帳號</td>
