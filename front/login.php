@@ -31,7 +31,7 @@ function login(){
 
     $.get("api/chk_ans.php",{ans},function(res){
         if(res==1){
-            $.get("api/chk_pw.php",{acc,pw},function(res){
+            $.get("api/chk_pw.php",{'table':'member',acc,pw},function(res){
                 if(res==1){
                     location.href='index.php';
                 }else{
