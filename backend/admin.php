@@ -20,7 +20,7 @@
         }else{
         ?>
         <button onclick="location.href='?do=edit_admin&id=<?=$ad['id'];?>'">修改</button>
-        <button>刪除</button>
+        <button onclick="del('admin',<?=$ad['id'];?>)">刪除</button>
         <?php
         }
         ?>
@@ -30,3 +30,4 @@
     }
     ?>
 </table>
+<div class="ct"><button onclick="location.href='index.php'">返回</button></div>
