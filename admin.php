@@ -28,7 +28,6 @@
                 <?php
                     $manager=$Admin->find(['acc'=>$_SESSION['admin']]);
                     $pr=unserialize($manager['pr']);
-                    
                 ?>
 
                 <a href="?do=th" style="display:<?=(in_array(1,$pr))?"block":"none";?>">商品分類與管理</a>
