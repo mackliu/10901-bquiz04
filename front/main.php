@@ -1,6 +1,26 @@
-<h1>全部商品</h1>
 <?php
-$goods=$Goods->all(['sh'=>1]);
+$type=$_GET['type'];
+if(empty($type)){
+    $goods=$Goods->all(['sh'=>1]);
+    $nav='全部商品';
+}else{
+    $tt=$Type->find($type);
+    if($tt['parent']==0){
+        $goods=$Goods->all(['sh'=>1,'big'=>$type]);
+        $nav=$tt['name'];
+    }else{
+        $goods=$Goods->all(['sh'=>1,'mid'=>$type]);
+        $bb=$Type->find($tt['parent']);
+        $nav=$bb['name'] . " > " . $tt['name'];
+    }
+}
+
+
+?>
+
+<h1><?=$nav;?></h1>
+<?php
+
 foreach($goods as $g){
 ?>
 <div class="pp" style='display:flex;width:80%;margin:10px auto'>
