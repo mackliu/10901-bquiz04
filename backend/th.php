@@ -30,7 +30,7 @@
         <?=($g['sh']==1)?"販售中":"已下架";?>
         </td>
         <td class="ct">
-        <button>修改</button>
+        <button onclick="location.href='?do=edit_goods&id=<?=$g['id'];?>'">修改</button>
         <button>刪除</button>
         <button>上架</button>
         <button>下架</button>

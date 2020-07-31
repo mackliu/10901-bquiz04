@@ -1,7 +1,10 @@
 <?php include_once "../base.php";
 
-$_POST['no']=rand(100000,999999);
-$_POST['sh']=1;
+if(empty($_POST['id'])){
+    $_POST['no']=rand(100000,999999);
+}
+
+//$_POST['sh']=1;
 
 if(!empty($_FILES['img']['tmp_name'])){
     $_POST['img']=$_FILES['img']['name'];
