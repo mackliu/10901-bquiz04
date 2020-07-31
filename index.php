@@ -53,6 +53,25 @@
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
+                <div class="ww"><a href="">全部商品</a></div>
+              <?php
+              $bigs=$Type->all(['parent'=>0]);
+              foreach($bigs as $b){
+                  echo "<div class='ww'><a href=''>".$b['name']."</a>";
+                  $mids=$Type->all(['parent'=>$b['id']]);
+                  if(!empty($mids)){
+                      echo "<div class='s'>";
+                      foreach($mids as $m){
+                          echo "<a href=''>".$m['name']."</a>";
+
+                      }
+                      echo "</div>";
+                  }
+                  echo "</div>";
+              }
+              
+              ?>
+
             </div>
             <span>
                 <div>進站總人數</div>

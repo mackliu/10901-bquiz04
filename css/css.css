@@ -64,7 +64,7 @@ body
 }
 .all td
 {
-	min-width:90px;
+	min-width:86px;
 	padding:10px;
 }
 .tt
@@ -100,6 +100,9 @@ input[type=text],input[type=password]
 .s
 {
 	display:none;
+}
+#left .s a{
+	background:lightgreen;
 }
 div.ww:hover > div.s
 {
