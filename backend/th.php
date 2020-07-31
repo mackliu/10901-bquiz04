@@ -26,14 +26,14 @@
         <td class="ct" ><?=$g['no'];?></td>
         <td><?=$g['name'];?></td>
         <td class="ct"><?=$g['stock'];?></td>
-        <td class="ct">
+        <td class="ct" id="g<?=$g['id'];?>">
         <?=($g['sh']==1)?"販售中":"已下架";?>
         </td>
         <td class="ct">
         <button onclick="location.href='?do=edit_goods&id=<?=$g['id'];?>'">修改</button>
-        <button>刪除</button>
-        <button>上架</button>
-        <button>下架</button>
+        <button onclick="del('goods',<?=$g['id'];?>)">刪除</button>
+        <button onclick="sh(<?=$g['id'];?>,1)">上架</button>
+        <button onclick="sh(<?=$g['id'];?>,2)">下架</button>
         </td>
     </tr>
 
@@ -85,4 +85,16 @@ function getTypeList(){
     })
 }
 
+function sh(id,type){
+    $.post("api/sh.php",{id,type},function(){
+        switch(type){
+            case 1:
+                $("#g"+id).html('販售中')
+            break;
+            case 2:
+                $("#g"+id).html('已下架')
+            break;
+        }
+    })
+}
 </script>
