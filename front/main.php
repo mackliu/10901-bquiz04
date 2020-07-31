@@ -28,7 +28,7 @@ foreach($goods as $g){
     <div style="width:60%;">
         <div class="tt ct"><?=$g['name'];?></div>
         <div>價格:<?=$g['price'];?>
-            <a href="?do=login"><img src="icon/0402.jpg" style="float:right"></a>
+            <a href="?do=buycart&id=<?=$g['id'];?>&qt=1"><img src="icon/0402.jpg" style="float:right"></a>
         </div>
         <div>規格:<?=$g['spec'];?></div>
         <div>簡介:<?=mb_substr($g['intro'],0,25,'utf8');?>...</div>
