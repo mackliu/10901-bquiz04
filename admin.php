@@ -26,10 +26,12 @@
             <div style="min-height:400px;">
                 <a href="?do=admin">管理權限設置</a>
                 <?php
+                //取得登入的管理者的資料
                     $manager=$Admin->find(['acc'=>$_SESSION['admin']]);
+                    //還原權限資料為陣列
                     $pr=unserialize($manager['pr']);
                 ?>
-
+                <!--利用in_array()來判斷選單是否顯示-->
                 <a href="?do=th" style="display:<?=(in_array(1,$pr))?"block":"none";?>">商品分類與管理</a>
                 <a href="?do=order"  style="display:<?=(in_array(2,$pr))?"block":"none";?>">訂單管理</a>
                 <a href="?do=mem" style="display:<?=(in_array(3,$pr))?"block":"none";?>">會員管理</a>

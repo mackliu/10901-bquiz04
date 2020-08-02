@@ -31,6 +31,7 @@ function login(){
         if(res==1){
             $.get("api/chk_pw.php",{'table':'admin',acc,pw},function(res){
                 if(res==1){
+                    //登入成功時導向後台頁面
                     location.href='admin.php';
                 }else{
                     alert("帳號或密碼錯誤")

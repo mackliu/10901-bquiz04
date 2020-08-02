@@ -6,17 +6,18 @@
 }
 </style>
 <?php
-
+//先判斷網址是否帶有商品，有的話先加入到購物車
 if(!empty($_GET['id'])){
 
     $_SESSION['cart'][$_GET['id']]=$_GET['qt'];
 
-}else if(empty($_SESSION['cart'])){
+}else if(empty($_SESSION['cart'])){ //判斷購物車是否為空車
 
     echo "<h2 class='ct'>請選擇商品</h2>";
 
 }
 
+//判斷是否為登入的使用者，未登入則導向登入頁
 if(empty($_SESSION['member'])){
     to("?do=login");
 }

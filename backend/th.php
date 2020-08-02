@@ -45,46 +45,56 @@
 
 
 <script>
+//先執行一次分類列表及大分類選單
 getTypeList()
 getBigOption()
 
+//新增大分類的ajax函式
 function addBig(){
     $.post("api/save_type.php",{'name':$("#big").val(),'parent':0},function(){
+        //新增完成後重新再載入一次列表及選單
         getBigOption()
         getTypeList()
     })
 }
 
+//編輯分類功能
 function edit(id){
     let newName=prompt("請輸入要修改的分類名稱",$("#t"+id).html())
     if(newName!=null){
+        //直接在頁面上更新文字內容，再使用ajax把資料送到api去做更新
         $("#t"+id).html(newName);
         $.post("api/edit_type.php",{id,newName})
     }
 }
 
+//取得大分類選單的ajax函式
 function getBigOption(){
     $.get("api/get_big.php",function(options){
             $("#mid").html(options)
     })
 }
 
+//新增中分類的ajax函式
 function addMid(){
     let name=$("#mid_name").val();
     let big=$("#mid").val();
 
     $.post("api/save_type.php",{'name':name,'parent':big},function(){
+        //新增完成後重新再載入一次列表及選單
         getBigOption()
         getTypeList()
     })
 }
 
+//取得分類列表的ajax函式
 function getTypeList(){
     $.get("api/get_type_list.php",function(list){
         $(".type-list").html(list)
     })
 }
 
+//處理商品上下架的ajax函式
 function sh(id,type){
     $.post("api/sh.php",{id,type},function(){
         switch(type){

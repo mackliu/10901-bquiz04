@@ -14,6 +14,7 @@
         <td class="tt ct">驗證碼</td>
         <td class="pp">
         <?php
+            //利用亂數來產生兩個數字，並將答案存在session中
             $a=rand(10,99);
             $b=rand(10,99);
             $_SESSION['ans']=$a+$b;
@@ -29,13 +30,16 @@ function login(){
     let pw=$("#pw").val()
     let ans=$("#ans").val()
 
+    //先檢查驗證碼的答案是否正確
     $.get("api/chk_ans.php",{ans},function(res){
         if(res==1){
+            //檢查帳號及密碼是否相符
             $.get("api/chk_pw.php",{'table':'member',acc,pw},function(res){
                 if(res==1){
                     location.href='index.php';
                 }else{
                     alert("帳號或密碼錯誤")
+                    //利用刷新畫面來清除表單欄位
                     location.reload()
                 }
             })
@@ -45,7 +49,5 @@ function login(){
     })
 
 }
-
-
 
 </script>

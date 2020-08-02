@@ -49,12 +49,12 @@
                 }
                 ?>
             </div>
-           <marquee >情人節特惠活動 &nbsp; 年終特賣會開跑了</marquee> 
+            <marquee>情人節特惠活動 &nbsp; 年終特賣會開跑了</marquee>
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
                 <div class="ww"><a href="?type=0">全部商品(<?=$Goods->count(['sh'=>1]);?>)</a></div>
-              <?php
+                <?php
               $bigs=$Type->all(['parent'=>0]);
               foreach($bigs as $b){
                   echo "<div class='ww'><a href='?type=".$b['id']."'>".$b['name']."(".$Goods->count(['sh'=>1,'big'=>$b['id']]).")</a>";
@@ -79,7 +79,7 @@
             </span>
         </div>
         <div id="right">
-        <?php
+            <?php
                 $do=(!empty($_GET['do']))?$_GET['do']:"main";
                 $file='front/'.$do.".php";
                 if(file_exists($file)){

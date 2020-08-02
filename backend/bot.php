@@ -15,5 +15,8 @@ if(!empty($_POST['bottom'])){
             <td class="pp"><input type="text" name="bottom" value="<?=$Bottom->find(1)['bottom'];?>"></td>
         </tr>
     </table>
-    <div class="ct"><input type="submit" value="編輯"><input type="button" value="重置" onclick="javascript:$('input[name=\'bottom\']').val('')"></div>
+    <div class="ct">
+        <input type="submit" value="編輯">
+        <!--使用js來完全清空輸入框內容-->
+        <input type="button" value="重置" onclick="javascript:$('input[name=\'bottom\']').val('')"></div>
 </form>
