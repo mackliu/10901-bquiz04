@@ -1,3 +1,15 @@
+<style>
+.type-list input[type='text']{
+    outline:none;
+    border:0;
+    background:transparent;
+}
+
+.type-list input[type='text']:focus{
+    background:white;
+}
+
+</style>
 <h2 class="ct">商品分類</h2>
 <div class="ct">新增大分類<input type="text" name="big" id="big"><button onclick="addBig()">新增</button></div>
 <div class="ct">
@@ -58,6 +70,13 @@ function addBig(){
     })
 }
 
+
+
+function edit2(id){
+    let newName=$("#t"+id).find('input').val();
+    console.log(newName)
+}
+
 //編輯分類功能
 function edit(id){
     let newName=prompt("請輸入要修改的分類名稱",$("#t"+id).html())
@@ -91,7 +110,12 @@ function addMid(){
 function getTypeList(){
     $.get("api/get_type_list.php",function(list){
         $(".type-list").html(list)
+
+        $(".type-list input[type='text']").on("change",function(){
+        let newName=$(this).val();
+        console.log(newName)
     })
+})
 }
 
 //處理商品上下架的ajax函式

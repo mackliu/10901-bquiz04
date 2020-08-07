@@ -1,3 +1,4 @@
+
 <?php include_once "base.php";?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,6 +12,19 @@
     <link href="./css/css.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="./js/js.js"></script>
+    <style>
+    
+        #cart{
+            width:80px;
+            height:60px;
+            border:1px solid black;
+            border-radius:5px;
+            background:skyblue;
+            position:absolute;
+            bottom:10px;
+            right:10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,10 +104,10 @@
 
         ?>
         </div>
+                <div id="cart"></div>
         <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
             <?=$Bottom->find(1)['bottom'];?></div>
     </div>
-
 </body>
 
 </html>

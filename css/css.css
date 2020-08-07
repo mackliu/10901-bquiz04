@@ -11,6 +11,7 @@ body
 	margin:20px auto 20px auto;
 	border:#000 solid 1px;
 	min-height:768px;
+	position: relative;
 }
 #top a
 {
