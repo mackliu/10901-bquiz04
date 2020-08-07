@@ -11,7 +11,7 @@ if(!empty($_GET['id'])){
 
     $_SESSION['cart'][$_GET['id']]=$_GET['qt'];
 
-}else if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){ //判斷購物車是否為空車
+}else if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){ //判斷購物車是否為空車及購物車是否存在
 
     echo "<h2 class='ct'>請選擇商品</h2>";
     exit();

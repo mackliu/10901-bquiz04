@@ -10,6 +10,7 @@
         <td>操作</td>
     </tr>
     <?php
+    //取出所有的訂單，並呈現訂單列表
     $ords=$Ord->all();
     foreach($ords as $ord){
     ?>

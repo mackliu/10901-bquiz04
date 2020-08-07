@@ -1,5 +1,6 @@
 <h2 class="ct">填寫資料</h2>
 <?php
+//取得登入的使用者資料並填入相對應的欄位
 $mem=$Member->find(['acc'=>$_SESSION['member']]);
 ?>
 <table class="all">
@@ -34,6 +35,8 @@ $mem=$Member->find(['acc'=>$_SESSION['member']]);
     </tr>
 
     <?php
+
+    //製做購物車列表及小計和總價
     $sum=0;
     foreach($_SESSION['cart'] as $goods => $qt){
         $g=$Goods->find($goods)
@@ -56,7 +59,8 @@ $mem=$Member->find(['acc'=>$_SESSION['member']]);
     </tr>
 </table>
 <div class="ct">
-    <button onclick="buy()">確定送出</button><button onclick="location.href='?do=buycart'">返回修改訂單</button>
+    <button onclick="buy()">確定送出</button>
+    <button onclick="location.href='?do=buycart'">返回修改訂單</button>
 </div>
 
 
@@ -70,11 +74,13 @@ function buy(){
         'addr':$("#addr").val()
     } */
 
+    //建立表單的資料
     let data=$("input").serialize();
-    //console.log(data)
+    
+    //傳送表單的資料到後做訂單處理
     $.post('api/buy.php',data,function(){
 
-        //console.log(res)
+        //顯示提示訊息後將頁面導向首頁
         alert("訂購成功\n感謝您的選購")
         location.href="index.php"
     })

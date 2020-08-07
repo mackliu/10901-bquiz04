@@ -44,8 +44,10 @@ body
 	display:inline-block;
 	width:65%;
 	padding:2%;
+	/*將原本的min-height改成height*/
 	height:550px;
 	border:#000 1px solid;
+	/*增加overflow屬性來自動出現滾軸*/
 	overflow: auto;
 }
 #bottom

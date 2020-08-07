@@ -1,4 +1,5 @@
 <?php
+//取得訂單資料並顯示在指定的位置中
 $ord=$Ord->find($_GET['id']);
 ?>
 <h2 class="ct">訂單編號<span style='color:red'><?=$ord['no'];?></span>的詳細資料</h2>
@@ -35,6 +36,7 @@ $ord=$Ord->find($_GET['id']);
     </tr>
 
     <?php
+    //還原商品欄位的資料為陣列,然後秀出商品列表及價格
     $cart=unserialize($ord['goods']);
     foreach($cart as $goods => $qt){
         $g=$Goods->find($goods)
