@@ -63,14 +63,17 @@ $mem=$Member->find(['acc'=>$_SESSION['member']]);
 <script>
 function buy(){
 
-    let data={
+/*     let data={
         'name':$("#name").val(),
         'email':$("#email").val(),
         'tel':$("#tel").val(),
         'addr':$("#addr").val()
-    }
+    } */
+
+    let data=$("input").serialize();
     //console.log(data)
     $.post('api/buy.php',data,function(){
+
         //console.log(res)
         alert("訂購成功\n感謝您的選購")
         location.href="index.php"
